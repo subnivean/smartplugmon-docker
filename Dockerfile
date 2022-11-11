@@ -11,8 +11,9 @@ COPY requirements.txt .
 RUN python -mpip install --upgrade pip \
  && pip install --no-cache-dir -r ./requirements.txt
 
-# Easiest to just do a `. ~/.bash_aliases to get handy shortcuts
-COPY bash.bash_aliases .bash_aliases
+# Put `--rcfile /bashrc` after `/bin/bash` in `run_bash.sh`
+# to pick these up on each login.
+COPY bash.bashrc bashrc
 
 RUN mkdir /data
 WORKDIR /app
