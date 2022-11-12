@@ -18,4 +18,4 @@ COPY bash.bashrc bashrc
 RUN mkdir /data
 WORKDIR /app
 
-CMD ["bash", "read_all.sh"]
+#CMD ["python", "app.py"]
