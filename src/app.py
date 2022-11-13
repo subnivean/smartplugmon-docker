@@ -16,7 +16,8 @@ for plugip in plugips:
     try:
         res = requests.post(cmd).json()
     except requests.ConnectionError:
-        res = {"StatusSNS": {"ENERGY": {"Power": 0}}}
+        #res = {"StatusSNS": {"ENERGY": {"Power": 0}}}
+        continue
 
     power = {f"sp{int(plugip):02d}": str(res["StatusSNS"]["ENERGY"]["Power"])}
 
