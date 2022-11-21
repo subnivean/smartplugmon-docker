@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime, timezone
 import requests
 import sqlite3
 import sys
@@ -8,7 +8,7 @@ plugips = sys.argv[1:]
 
 CMDFMT = "http://192.168.1.{ip}/cm?cmnd=Status 8"
 
-ts = datetime.datetime.now().isoformat(sep=" ", timespec="seconds")
+ts = datetime.now(timezone.utc).isoformat(sep=" ", timespec="seconds")
 powers = {"date": f'"{ts}"'}
 
 for plugip in plugips:
